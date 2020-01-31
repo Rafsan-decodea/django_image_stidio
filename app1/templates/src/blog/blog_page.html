@@ -1,8 +1,7 @@
 {% extends 'src/out_page_layout.html' %} 
 {% load static %} 
-{% if user.is_authenticated %}
 {% block body %} 
-
+{% if user.is_authenticated  %}
 <style>
 body {
   background-image: url('https://i1.sndcdn.com/artworks-000165112559-haepbp-t500x500.jpg');
@@ -54,10 +53,10 @@ body {
 <!-- Latest compiled and minified JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
+{% else %}
 
+asdasdasd
+{% endif %}
 
 {% endblock %} 
 
-{% else %}
-
-{% endif %}
