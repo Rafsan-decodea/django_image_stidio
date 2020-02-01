@@ -57,24 +57,27 @@
 
 <div class="body">
     <h1 style=" margin-top: 100px; text-align: center;" class="text">Registration From For Upload</h1>
-    <form action="index.html" method="POST" enctype="multipart/form-data">
+    <form action="" method="POST">
+    {% csrf_token %}
          <div class="clas" style="width:200px; margin:0 auto; margin-top: 20px;">
 
             <div class="input-group">
-               <level class="text"> Your Name</level>
-                   <input type="text" class="form-control" /><br>
-               <level class="text">Email</Level>
-                  <input type="email" class="form-control" /><br>
-               <level class= "text">Password</level>
-                  <input type="Password"  class="form-control" /><br>
-                <level class="text">Confrim Password</level> 
-                   <input type="password"  class="form-control" />  <br> 
+                {{ form.username.label }}
+                {{ form.username }} 
+                {{ form.email.label }}
              <button type="submit" style="width:200px;margin-top: 10px; " class="btn btn-primary hi">Register</button>
 
         </div>
     </form>
-    <p style=" margin-top: 100px; text-align: center;" class="text">Already Register ? <a href="/login">Login</p>
+    {% comment %} <p style=" margin-top: 100px; text-align: center;" class="text">Already Register ? <a href="/login">Login</p> {% endcomment %}
 </div>
+
 
 {% endif %} 
 {% endblock %}
+
+
+{% comment %} arifulislam6210
+
+
+ {% endcomment %}

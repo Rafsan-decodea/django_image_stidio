@@ -16,13 +16,20 @@ from django.http import HttpResponseRedirect
 from django.core.urlresolvers import reverse
 from django.http import *
 from django.contrib import messages
+from django.contrib.auth.forms import UserCreationForm
 from django.db.models import Q
 
+
 def index(request):
-    post = Post.objects.all()
-    context = { 'post': post , 'image':post}
+    form = UserCreationForm()
+    if request.method == 'POST':
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('index')
+    context = {'form':form}
     return render(request, 'src/blog/blog_page.html' , context)
-    
+
 def login_panal(request):
     return render(request,'login.html')
 def dashbord(request):
@@ -58,8 +65,13 @@ def penlist(request):
     return render(request,'src/curd/show_pen_1.html' , context)
 
 
-
-
+##def register(request):
+##    form = UserCreationForm()
+##    if request.method == 'POST':
+##        form = UserCreationForm(request.POST)
+##        if form.is_valid():
+##            form.save()
+##    context = {'form':form}
 
 
 def login(request):
