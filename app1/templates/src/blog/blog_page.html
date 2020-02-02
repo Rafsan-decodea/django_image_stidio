@@ -18,6 +18,9 @@
         font:bold;
         font-family: Arial, Helvetica, sans-serif;
     }
+    .error{
+        color :red;
+    }
 </style>
 {% if user.is_authenticated %}
   
@@ -66,11 +69,11 @@
             <div class="input-group">
               <level class="text"> {{ form.username.label }}</level>
                 {{ form.username }} 
-                {{ form.password1.label }}
-                {{ form.password1  }}
-                {{ form.password2.label }}
+               <level class="text"> {{ form.password1.label }}</level>
+               {{ form.password1  }}
+               <level class="text"> {{ form.password2.label }} </level>
                 {{ form.password2 }}
-                {{ form.errors }}
+              <p class="error"> {{ form.errors }}</p>
              <button type="submit" style="width:200px;margin-top: 10px; " class="btn btn-primary hi">Register</button>
 
         </div>
