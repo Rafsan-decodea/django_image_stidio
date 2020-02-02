@@ -19,7 +19,8 @@
     }
 </style>
 {% if user.is_authenticated %}
-
+  
+  {{ user.name }}
 
 <div class="back">
 
@@ -62,9 +63,13 @@
          <div class="clas" style="width:200px; margin:0 auto; margin-top: 20px;">
 
             <div class="input-group">
-                {{ form.username.label }}
+              <level class> {{ form.username.label }}</level>
                 {{ form.username }} 
-                {{ form.email.label }}
+                {{ form.password1.label }}
+                {{ form.password1  }}
+                {{ form.password2.label }}
+                {{ form.password2 }}
+                {{ form.errors }}
              <button type="submit" style="width:200px;margin-top: 10px; " class="btn btn-primary hi">Register</button>
 
         </div>
