@@ -45,6 +45,13 @@
             <ul class="nav-menu nav navbar-nav">
               <li><a href="category.html">News</a></li>
               <li><a href="category.html">Popular</a></li>
+              
+              {% if user.is_authenticated %}
+                   <li class="cat-4"><a href="">Login as===>{{ user.username }}</a></li>
+                   <li class="cat-4"><a href="/logout/">Logout?</a></li>
+              {% endif %}
+                
+              
               {% comment %} <li class="cat-1"><a href="category.html">Web Design</a></li>
               <li class="cat-2"><a href="category.html">JavaScript</a></li>
               <li class="cat-3"><a href="category.html">Css</a></li>
@@ -78,7 +85,11 @@
               <li><a href="#">Join Us</a></li>
               <li><a href="#">Advertisement</a></li>
               <li><a href="contact.html">Contacts</a></li>
-              <li class="cat-4"><a href="/blog_admin/">Admin_Dashboard</a></li>
+              {% if user.is_authenticated %}
+              <li class="cat-4"><a href="">{{ user.username }}</a></li>
+              {% else %}
+                 <li class="cat-4"><a href="/login/">Login</a></li>
+               {% endif %}
             </ul>
           </div>
           <!-- /nav -->
