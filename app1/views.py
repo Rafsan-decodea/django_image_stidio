@@ -26,7 +26,7 @@ def index(request):
         form = UserCreationForm(request.POST)
         if form.is_valid():
             form.save()
-            return render(request, 'src/blog/blog_page.html', {success:'You Success Fully Register Now click to Login'})
+            return render(request, 'src/blog/blog_page.html', {'success':'You Success Fully Register Now click to Login'})
     context = {'form':form}
     return render(request, 'src/blog/blog_page.html' , context)
 
