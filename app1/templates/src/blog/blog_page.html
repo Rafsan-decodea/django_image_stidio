@@ -28,6 +28,10 @@
         background-color:white;
 
     }
+    .namefild{
+        color:red;
+        font-weight:1000;
+    }
 </style>
 {% if user.is_authenticated %}
   
@@ -37,11 +41,12 @@
 
     <h1 style=" margin-top: 150px; text-align: center;" class="text">Upload Your Photo Heare and Keep Saife</h1>
 
-    <form action="index.html" method="POST" enctype="multipart/form-data">
-
+    <form action="create_post/" method="POST" enctype="multipart/form-data">
+      {% csrf_token %}
         <div class="clas" style="width:200px; margin:0 auto; margin-top: 50px;">
 
             <div class="input-group">
+             <p class="namefild">ImageName:</p> <input type="text" name="img_name"/>
                 <div class="input-group-prepend">
                     <span class="input-group-text" id="inputGroupFileAddon01">Upload</span>
                 </div>
@@ -49,11 +54,18 @@
                     <input type="file" class="btn btn-info hi" name="image" />
                 </div>
             </div>
-
+            
             <button type="submit" style="width:200px;margin-top: 10px; " class="btn btn-primary hi">Upload</button>
-
+          
         </div>
     </form>
+     <div>
+           {% for post in post %}
+                <img src="{{ post.image.url}}"/><br>
+                {{post.post}}           
+                {% endfor %}
+            <
+           </div>
 </div>
 
 <!-- Latest compiled and minified CSS -->
@@ -80,14 +92,17 @@
                {{ form.password1  }}
                <p class="form"> {{ form.password2.label }} </p>
                 {{ form.password2 }}
-              <div id="error">  
-              <p > {{ form.errors }}</p>
-              <a href="/login/" style="color:Green; font-width:bold;" >{{success}}</a >
-              </div>
+               
              <button type="submit" style="width:200px;margin-top: 10px; " class="btn btn-primary hi">Register</button>
+              
+        
 
         </div>
     </form>
+    <div id="error">  
+        <p > {{ form.errors }}</p>
+        <a href="/login/" style="color:Green; font-width:bold;" >{{success}}</a >
+    </div>
     <p style=" margin-top: 100px; text-align: center;" class="text">Already Register ? <a href="/login">Login</p>
 </div>
 

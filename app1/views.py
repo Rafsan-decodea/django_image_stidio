@@ -27,12 +27,25 @@ def index(request):
         if form.is_valid():
             form.save()
             return render(request, 'src/blog/blog_page.html', {'success':'You Success Fully Register Now click to Login'})
-    context = {'form':form}
+    post_image = Post.objects.all()
+    context = {'form':form,'post':post_image}
     return render(request, 'src/blog/blog_page.html' , context)
 
 def login_panal(request):
     return render(request,'login.html')
 
+def create_post(request):
+    print(request.POST)
+    post = request.POST.get('img_name')
+    image = request.FILES['image']
+    post_details = Post(post=post ,image=image)
+    post_details.save()
+    return redirect('index')
+
+def delete_post(request,id):
+    pen = Post.objects.get(pk=id)
+    pen.delete()
+    return redirect('index')
 
 
 ##def register(request):
