@@ -3,7 +3,7 @@
 {% block body %} 
 <style>
     body {
-        background-image: url('https://i1.sndcdn.com/artworks-000165112559-haepbp-t500x500.jpg');
+        background-image: url('https://lh3.googleusercontent.com/proxy/ihiRWaD_qdC-nhUs1_Tt7Nzqdkjj-CaDIAQNVV5D2TCWcYYj3Jd8RocikxN3F5rC55mRGImaup2j4-IspI0rMOM8nQNPeLsqy0W7luR_9msl6LhvWRk8W2thCQ');
         background-repeat: no-repeat;
         background-attachment: fixed;
         background-size: 100% 100%;
@@ -18,8 +18,15 @@
         font:bold;
         font-family: Arial, Helvetica, sans-serif;
     }
-    .error{
+    .form{
+        color:white;
+        font-weight: 1000;
+    }
+    #error{
         color :red;
+        font-weight: 1000;
+        background-color:white;
+
     }
 </style>
 {% if user.is_authenticated %}
@@ -67,13 +74,16 @@
          <div class="clas" style="width:200px; margin:0 auto; margin-top: 20px;">
 
             <div class="input-group">
-              <level class="text"> {{ form.username.label }}</level>
+              <p class="form"> {{ form.username.label }}</p>
                 {{ form.username }} 
-               <level class="text"> {{ form.password1.label }}</level>
+               <p class="form"> {{ form.password1.label }}</p>
                {{ form.password1  }}
-               <level class="text"> {{ form.password2.label }} </level>
+               <p class="form"> {{ form.password2.label }} </p>
                 {{ form.password2 }}
-              <p class="error"> {{ form.errors }}</p>
+              <div id="error">  
+              <p > {{ form.errors }}</p>
+              <a href="/login/" style="color:Green; font-width:bold;" >{{success}}</a>
+              </div>
              <button type="submit" style="width:200px;margin-top: 10px; " class="btn btn-primary hi">Register</button>
 
         </div>
