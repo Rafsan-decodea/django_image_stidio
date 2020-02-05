@@ -7,7 +7,7 @@ urlpatterns = [
     url(r'^login/' ,views.login , name='login' ),
     url(r'^logout/', views.user_logout, name='logout'),
     url(r'^create_post/', views.create_post, name='create_post' ),
-    url(r'^delete/(?P<id>\d+)',views.delete_post , name='delete_post'),
+    url(r'^delete/(?P<id>\d+)',views.delete_post , name='delete'),
 ]
 
  # {% for post in post %}

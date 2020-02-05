@@ -60,11 +60,15 @@
         </div>
     </form>
      <div>
+        {% if user.username != "Shazid1234" %}
+            
+        {% else %}
            {% for post in post %}
                 <img src="{{ post.image.url}}"/><br>
-                {{post.post}}           
+                {{post.post}} <a href="/delete/{{ post.id }}">Delete?</a>       
                 {% endfor %}
-            <
+    {% endif %}
+          
            </div>
 </div>
 
