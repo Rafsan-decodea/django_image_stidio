@@ -68,7 +68,7 @@
                  <img class="card-img-top" hight="300px" width="300px" src="{{ post.image.url}}" alt="">
                  <div class="card-body">
                      <h4 class="card-title">{{post.post}}</h4>
-                     <a  href="/delete/{{ post.id }} " class="btn btn-danger">Delete</a>
+                     <a onclick="return confirm('Are You Sure To Delete {{ post.post }}')" href="/delete/{{ post.id }} " class="btn btn-danger">Delete</a>
                       {% endfor %}
                  </div>
              </div>      
