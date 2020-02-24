@@ -3,7 +3,7 @@
 {% block body %} 
 <style>
     body {
-        background-image: url('https://lh3.googleusercontent.com/proxy/ihiRWaD_qdC-nhUs1_Tt7Nzqdkjj-CaDIAQNVV5D2TCWcYYj3Jd8RocikxN3F5rC55mRGImaup2j4-IspI0rMOM8nQNPeLsqy0W7luR_9msl6LhvWRk8W2thCQ');
+        background-image: url('https://freedesignfile.com/upload/2018/04/Black-hexagon-carbon-fiber-background-vectors-01.jpg');
         background-repeat: no-repeat;
         background-attachment: fixed;
         background-size: 100% 100%;
@@ -57,18 +57,23 @@
             
             <button type="submit" style="width:200px;margin-top: 10px; " class="btn btn-primary hi">Upload</button>
           
-        </div>
-    </form>
+        </div> 
+    </form> 
      <div>
-        {% if user.username != "Shazid1234" %}
-            
-        {% else %}
-           {% for post in post %}
-                <img src="{{ post.image.url}}"/><br>
-                {{post.post}} <a href="/delete/{{ post.id }}">Delete?</a>       
-                {% endfor %}
-    {% endif %}
+        
+      
           
+             <div class="card col-5 float-right">
+              {% for post in post %}
+                 <img class="card-img-top" hight="300px" width="300px" src="{{ post.image.url}}" alt="">
+                 <div class="card-body">
+                     <h4 class="card-title">{{post.post}}</h4>
+                     <a  href="/delete/{{ post.id }} " class="btn btn-danger">Delete</a>
+                      {% endfor %}
+                 </div>
+             </div>      
+           
+
            </div>
 </div>
 

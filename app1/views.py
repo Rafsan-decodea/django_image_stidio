@@ -28,7 +28,7 @@ def index(request):
             form.save()
             return render(request, 'src/blog/blog_page.html', {'success':'You Success Fully Register Now click to Login'})
     post_image = Post.objects.all()
-    context = {'form':form,'post':post_image}
+    context = {'form': form,'post':post_image}
     return render(request, 'src/blog/blog_page.html' , context)
 
 def login_panal(request):
